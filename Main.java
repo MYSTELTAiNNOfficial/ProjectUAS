@@ -28,7 +28,7 @@ public class Main {
         String golongan[][][] = {
             {{"R-1/TR", "R-2/TR"},{"test"},{"help"}},
             {{"lel", "Test"}},
-            {{"test","123"}}
+            {{"test","123", "456"}}
         };
         String barang[] = {"Lampu", "Rice Cooker", "Kulkas", "AC", "e", "e"}; //[] pertama = tipe,
         System.out.printf(golongan[0][1][0]);
