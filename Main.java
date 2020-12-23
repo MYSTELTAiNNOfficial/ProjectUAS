@@ -27,6 +27,5 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         String golongan[][][] = {{{}}};
         String barang[] = {"Lampu", "Rice Cooker", "Kulkas", "AC", "Setrika", "Mesin Cuci"}; //[] pertama = tipe,
-        System.out.printf(golongan[0][1][0]);
     }
 }
