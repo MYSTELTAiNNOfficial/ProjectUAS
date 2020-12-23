@@ -34,8 +34,21 @@ public class Main {
             int menu = scan.nextInt();
 
             if (menu == 1) {
-                gate.menuhitung();
-                int menu1 = scan.nextInt();
+                do {
+                    gate.menuhitung();
+                    int menu1 = scan.nextInt();
+                    if (menu1 == 1) {
+                        /*
+                        array golongan
+                        harusnya pake 3D
+                        bagian [] pertama diisi tipe
+                        bagian [] kedua diisi tegangannya berapa
+                        bagian [] ketiga diisi harga per kilowatt nya berapa
+                        */
+                    } else if (menu1 == 2) {
+                        
+                    }
+                } while (true);
             }
 
         } while (true);
@@ -52,8 +65,8 @@ public class Main {
         System.out.println("================");
         System.out.print("Pilih menu: ");
     }
-    
-    public void menuhitung(){ //menu bagian hitung
+
+    public void menuhitung() { //menu bagian hitung
         System.out.println("");
         System.out.println("====================");
         System.out.println("    HITUNG BIAYA    ");
