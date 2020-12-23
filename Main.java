@@ -16,7 +16,7 @@
  */
 
 /**
- *
+ * Halooo
  * @author Syamsuddin & Averill
  */
 import java.util.Scanner;
