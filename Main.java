@@ -24,8 +24,23 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        Main gate = new Main();
         Scanner scan = new Scanner(System.in);
         String golongan[][][] = {{{}}};
         String barang[] = {"Lampu", "Rice Cooker", "Kulkas", "AC", "Setrika", "Mesin Cuci"}; //[] pertama = tipe,
+        
+        gate.menu();
+    }
+    
+    public void menu (){
+        System.out.println("Penghitung biaya listrik (By Syamsuddin & Averill)");
+        System.out.println("");
+        System.out.println("===============");
+        System.out.println("Menu:");
+        System.out.println("1. Hitung");
+        System.out.println("2. Bantuan");
+        System.out.println("3. Keluar");
+        System.out.println("================");
+        System.out.print("Pilih menu:");
     }
 }
