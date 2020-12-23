@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 MYSTELTAiNN
+ * Copyright (C) 2020 Syamsuddin, Averill
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
 
 /**
  *
- * @author MYSTELTAiNN
+ * @author Syamsuddin & Averill
  */
 import java.util.Scanner;
 
