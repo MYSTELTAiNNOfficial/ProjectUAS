@@ -26,10 +26,13 @@ public class Main {
     public static void main(String[] args) {
         Main gate = new Main(); //penghubung method
         Scanner scan = new Scanner(System.in);
+        
+        int menu;
         String golongan[][][] = {{{}}};
         String barang[] = {"Lampu", "Rice Cooker", "Kulkas", "AC", "Setrika", "Mesin Cuci"}; //[] pertama = tipe,
         
         gate.menu(); //panggil menu
+        menu = scan.nextInt();
     }
     
     public void menu (){ //menu awal
