@@ -32,7 +32,7 @@ public class Main {
         gate.menu(); //panggil menu
     }
     
-    public void menu (){
+    public void menu (){ //menu awal
         System.out.println("Penghitung biaya listrik (By Syamsuddin & Averill)");
         System.out.println("");
         System.out.println("===============");
