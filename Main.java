@@ -16,7 +16,7 @@
  */
 
 /**
- * Halooo
+ *
  * @author Syamsuddin & Averill
  */
 import java.util.Scanner;
@@ -25,12 +25,8 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        String golongan[][][] = {
-            {{"R-1/TR", "R-2/TR"},{"test"},{"help"}},
-            {{"lel", "Test"}},
-            {{"test","123"}}
-        };
-        String barang[] = {"Lampu", "Rice Cooker", "Kulkas", "AC", "e", "e"}; //[] pertama = tipe,
+        String golongan[][][] = {{{}}};
+        String barang[] = {"Lampu", "Rice Cooker", "Kulkas", "AC", "Setrika", "Mesin Cuci"}; //[] pertama = tipe,
         System.out.printf(golongan[0][1][0]);
     }
 }
