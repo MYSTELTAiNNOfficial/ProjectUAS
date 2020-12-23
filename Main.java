@@ -44,13 +44,17 @@ public class Main {
                         bagian [] pertama diisi tipe
                         bagian [] kedua diisi tegangannya berapa
                         bagian [] ketiga diisi harga per kilowatt nya berapa
-                        */
+                         */
                     } else if (menu1 == 2) {
-                        
+
                     }
                 } while (true);
-            }
+            } else if (menu == 2) {
 
+            } else if (menu == 3) {
+                System.out.println("Bye-bye");
+                break;
+            }
         } while (true);
     }
 
