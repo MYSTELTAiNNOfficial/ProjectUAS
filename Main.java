@@ -66,6 +66,16 @@ public class Main {
                         bagian [] kedua diisi tipe [0], tegangannya berapa [1], dan
                                               harga per kilowatt nya berapa [2]
                          */
+                        gate.daftargolongan();
+                        int temp = scan.nextInt();
+                        temp--;
+                        for (int i = 0; i < golongan.length; i++) {
+                            for (int j = 0; j < 3; j++) {
+                                if (i==temp) {
+                                    System.out.println(golongan[i][j]);
+                                }
+                            }
+                        }
                     } else if (menu1 == 2) {
 
                     }
@@ -88,7 +98,7 @@ public class Main {
         System.out.println("2. Bantuan");
         System.out.println("3. Keluar");
         System.out.println("================");
-        System.out.print("Pilih menu: ");
+        System.out.print("Pilih menu (1-3): ");
     }
 
     public void menuhitung() { //menu bagian hitung
@@ -103,6 +113,22 @@ public class Main {
         System.out.println("5. Hitung total biaya");
         System.out.println("6. Exit");
         System.out.println("====================");
-        System.out.print("Pilih menu: ");
+        System.out.print("Pilih menu (1-6): ");
+    }
+
+    public void daftargolongan() { //menampilkan daftar golongan
+        System.out.println("");
+        System.out.println("=====================");
+        System.out.println("List Golongan listrik");
+        System.out.println("=====================");
+        System.out.println("1. R-1/TR (0-450 VA");
+        System.out.println("2. R-1/TR (451-900 VA");
+        System.out.println("3. R-1M/TR (451 - 900 VA");
+        System.out.println("4. R-1/TR (901 - 1300 VA)");
+        System.out.println("5. R-1/TR (1301 - 2200 VA");
+        System.out.println("6. R-2/TR (2201 - 5500 VA");
+        System.out.println("7. R-3/TR (> 5501 VA)");
+        System.out.println("=====================");
+        System.out.print("Pilih (1-7): ");
     }
 }
