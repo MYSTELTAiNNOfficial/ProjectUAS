@@ -27,7 +27,7 @@ public class Main {
         Main gate = new Main(); //penghubung method
         Scanner scan = new Scanner(System.in);
 
-        String golongan[][] = new String[7][3];
+        String golongan[][] = new String[7][3]; //array golongan sdh jadi
         golongan[0][0] = "R-1/TR";
         golongan[0][1] = "450";
         golongan[0][2] = "165";
@@ -47,7 +47,7 @@ public class Main {
         golongan[5][1] = "5500";
         golongan[5][2] = "1444,70";
         golongan[6][0] = "R-3/TR";
-        golongan[6][1] = ">5501";
+        golongan[6][1] = ">5501"; //diatas 5500
         golongan[6][2] = "1444,70";
         String barang[] = {"Lampu", "Rice Cooker", "Kulkas", "AC", "Setrika", "Mesin Cuci"}; //[] pertama = tipe,
         do {
