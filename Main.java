@@ -83,7 +83,7 @@ public class Main {
                 } while (true);
             } else if (menu == 2) {
 
-            } else if (menu == 3) {
+            } else if (menu == 6) {
                 System.out.println("Bye-bye");
                 break;
             }
@@ -122,13 +122,13 @@ public class Main {
         System.out.println("=====================");
         System.out.println("List Golongan listrik");
         System.out.println("=====================");
-        System.out.println("1. R-1/TR (0-450 VA)");
-        System.out.println("2. R-1/TR (451-900 VA)");
+        System.out.println("1. R-1/TR  (0-450 VA)");
+        System.out.println("2. R-1/TR  (451-900 VA)");
         System.out.println("3. R-1M/TR (451 - 900 VA)");
-        System.out.println("4. R-1/TR (901 - 1300 VA)");
-        System.out.println("5. R-1/TR (1301 - 2200 VA)");
-        System.out.println("6. R-2/TR (2201 - 5500 VA)");
-        System.out.println("7. R-3/TR (> 5500 VA)");
+        System.out.println("4. R-1/TR  (901 - 1300 VA)");
+        System.out.println("5. R-1/TR  (1301 - 2200 VA)");
+        System.out.println("6. R-2/TR  (2201 - 5500 VA)");
+        System.out.println("7. R-3/TR  (> 5500 VA)");
         System.out.println("=====================");
         System.out.print("Pilih (1-7): ");
     }
