@@ -27,25 +27,108 @@ public class Main {
         Main gate = new Main(); //penghubung method
         Scanner scan = new Scanner(System.in);
 
-        int menu;
-        String golongan[][][] = {{{}}};
+        String golongan[][] = new String[7][3]; //array golongan sdh jadi
+        golongan[0][0] = "R-1/TR";
+        golongan[0][1] = "450";
+        golongan[0][2] = "165";
+        golongan[1][0] = "R-1/TR";
+        golongan[1][1] = "900";
+        golongan[1][2] = "274";
+        golongan[2][0] = "R-1M/TR";
+        golongan[2][1] = "900";
+        golongan[2][2] = "1352";
+        golongan[3][0] = "R-1/TR";
+        golongan[3][1] = "1300";
+        golongan[3][2] = "1444,70";
+        golongan[4][0] = "R-1/TR";
+        golongan[4][1] = "2200";
+        golongan[4][2] = "1444,70";
+        golongan[5][0] = "R-2/TR";
+        golongan[5][1] = "5500";
+        golongan[5][2] = "1444,70";
+        golongan[6][0] = "R-3/TR";
+        golongan[6][1] = ">5501"; //diatas 5500
+        golongan[6][2] = "1444,70";
         String barang[] = {"Lampu", "Rice Cooker", "Kulkas", "AC", "Setrika", "Mesin Cuci"}; //[] pertama = tipe,
         do {
-            gate.menu(); //panggil menu
-            menu = scan.nextInt();
-            
+            gate.mainmenu(); //panggil menu
+            int menu = scan.nextInt();
+
+            if (menu == 1) {
+                do {
+                    gate.menuhitung();
+                    int menu1 = scan.nextInt();
+                    if (menu1 == 1) {
+                        /*
+                        array golongan
+                        harusnya pake 2D
+                        bagian [] pertama diisi nomor
+                        bagian [] kedua diisi tipe [0], tegangannya berapa [1], dan
+                                              harga per kilowatt nya berapa [2]
+                         */
+                        gate.daftargolongan();
+                        int temp = scan.nextInt();
+                        temp--;
+                        for (int i = 0; i < golongan.length; i++) {
+                            for (int j = 0; j < 3; j++) {
+                                if (i==temp) {
+                                    System.out.println(golongan[i][j]);
+                                }
+                            }
+                        }
+                    } else if (menu1 == 2) {
+
+                    }
+                } while (true);
+            } else if (menu == 2) {
+
+            } else if (menu == 3) {
+                System.out.println("Bye-bye");
+                break;
+            }
         } while (true);
     }
 
-    public void menu() { //menu awal
+    public void mainmenu() { //menu awal
         System.out.println("Penghitung biaya listrik (By Syamsuddin & Averill)");
         System.out.println("");
-        System.out.println("===============");
+        System.out.println("================");
         System.out.println("Menu:");
         System.out.println("1. Hitung");
         System.out.println("2. Bantuan");
         System.out.println("3. Keluar");
         System.out.println("================");
-        System.out.print("Pilih menu:");
+        System.out.print("Pilih menu (1-3): ");
+    }
+
+    public void menuhitung() { //menu bagian hitung
+        System.out.println("");
+        System.out.println("====================");
+        System.out.println("    HITUNG BIAYA    ");
+        System.out.println("====================");
+        System.out.println("1. Pilih Kategori Listrik");
+        System.out.println("2. Tambahkan barang");
+        System.out.println("3. Update data barang");
+        System.out.println("4. Hapus barang");
+        System.out.println("5. Hitung total biaya");
+        System.out.println("6. Exit");
+        System.out.println("====================");
+        System.out.print("Pilih menu (1-6): ");
+    }
+
+    public void daftargolongan() { //menampilkan daftar golongan
+        System.out.println("");
+        System.out.println("=====================");
+        System.out.println("List Golongan listrik");
+        System.out.println("=====================");
+        System.out.println("1. R-1/TR (0-450 VA");
+        System.out.println("2. R-1/TR (451-900 VA");
+        System.out.println("3. R-1M/TR (451 - 900 VA");
+        System.out.println("4. R-1/TR (901 - 1300 VA)");
+        System.out.println("5. R-1/TR (1301 - 2200 VA");
+        System.out.println("6. R-2/TR (2201 - 5500 VA");
+        System.out.println("7. R-3/TR (> 5501 VA)");
+        System.out.println("=====================");
+        System.out.print("Pilih (1-7): ");
     }
 }
