@@ -27,6 +27,8 @@ public class Main {
         Main gate = new Main(); //penghubung method
         Scanner scan = new Scanner(System.in);
 
+        String confirm = "";
+
         String golongan[][] = new String[7][3]; //array golongan sdh jadi
         golongan[0][0] = "R-1/TR";
         golongan[0][1] = "450";
@@ -47,7 +49,7 @@ public class Main {
         golongan[5][1] = "5500";
         golongan[5][2] = "1444,70";
         golongan[6][0] = "R-3/TR";
-        golongan[6][1] = ">5501"; //diatas 5500
+        golongan[6][1] = ">5500"; //diatas 5500
         golongan[6][2] = "1444,70";
         String barang[] = {"Lampu", "Rice Cooker", "Kulkas", "AC", "Setrika", "Mesin Cuci"}; //[] pertama = tipe,
         do {
@@ -69,15 +71,14 @@ public class Main {
                         gate.daftargolongan();
                         int temp = scan.nextInt();
                         temp--;
-                        for (int i = 0; i < golongan.length; i++) {
-                            for (int j = 0; j < 3; j++) {
-                                if (i==temp) {
-                                    System.out.println(golongan[i][j]);
-                                }
-                            }
-                        }
-                    } else if (menu1 == 2) {
+                        System.out.println("Golongan : " + golongan[temp][0]);
+                        System.out.println("Daya Max : " + golongan[temp][1] + " VA");
+                        System.out.println("Biaya    : Rp." + golongan[temp][2] + "/KWh");
+                        System.out.print("Lanjutkan Proses? (Y/N)");
+                        confirm = scan.next() + scan.nextLine();
 
+                    } else if (menu1 == 2) {
+                        gate.daftarbarang(barang);
                     }
                 } while (true);
             } else if (menu == 2) {
@@ -121,14 +122,20 @@ public class Main {
         System.out.println("=====================");
         System.out.println("List Golongan listrik");
         System.out.println("=====================");
-        System.out.println("1. R-1/TR (0-450 VA");
-        System.out.println("2. R-1/TR (451-900 VA");
-        System.out.println("3. R-1M/TR (451 - 900 VA");
+        System.out.println("1. R-1/TR (0-450 VA)");
+        System.out.println("2. R-1/TR (451-900 VA)");
+        System.out.println("3. R-1M/TR (451 - 900 VA)");
         System.out.println("4. R-1/TR (901 - 1300 VA)");
-        System.out.println("5. R-1/TR (1301 - 2200 VA");
-        System.out.println("6. R-2/TR (2201 - 5500 VA");
-        System.out.println("7. R-3/TR (> 5501 VA)");
+        System.out.println("5. R-1/TR (1301 - 2200 VA)");
+        System.out.println("6. R-2/TR (2201 - 5500 VA)");
+        System.out.println("7. R-3/TR (> 5500 VA)");
         System.out.println("=====================");
         System.out.print("Pilih (1-7): ");
+    }
+
+    public void daftarbarang(String barang[]) {
+        for (int i = 0; i < barang.length; i++) {
+            System.out.println((i + 1) + ". " + barang[i]);
+        }
     }
 }
