@@ -29,7 +29,7 @@ public class Main {
 
         String confirm = "";
 
-        String golongan[][] = new String[7][3]; //array golongan sdh jadi
+        String golongan[][] = new String[7][3];
         golongan[0][0] = "R-1/TR";
         golongan[0][1] = "450";
         golongan[0][2] = "165";
@@ -61,13 +61,6 @@ public class Main {
                     gate.menuhitung();
                     int menu1 = scan.nextInt();
                     if (menu1 == 1) {
-                        /*
-                        array golongan
-                        harusnya pake 2D
-                        bagian [] pertama diisi nomor
-                        bagian [] kedua diisi tipe [0], tegangannya berapa [1], dan
-                                              harga per kilowatt nya berapa [2]
-                         */
                         gate.daftargolongan();
                         int temp = scan.nextInt();
                         temp--;
