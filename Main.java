@@ -13,9 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
-/**
+ 
  *
  * @author Syamsuddin & Averill
  */
@@ -27,7 +25,7 @@ public class Main {
         Main gate = new Main(); //penghubung method
         Scanner scan = new Scanner(System.in);
 
-        String confirm = "";
+        String confirm = "n";
 
         String golongan[][] = new String[7][3];
         golongan[0][0] = "R-1/TR";
@@ -69,14 +67,15 @@ public class Main {
                         System.out.println("Biaya    : Rp." + golongan[temp][2] + "/KWh");
                         System.out.print("Lanjutkan Proses? (Y/N)");
                         confirm = scan.next() + scan.nextLine();
-
                     } else if (menu1 == 2) {
-                        gate.daftarbarang(barang);
-                    }
-                } while (true);
+                        gate.jenisBarang(barang);
+                        int pilih = scan.nextInt();
+                        gate.daftarBarang(pilih);
+                    } else if (menu1 == 6) break;
+                } while (confirm.equalsIgnoreCase("y"));
             } else if (menu == 2) {
 
-            } else if (menu == 6) {
+            } else if (menu == 3) {
                 System.out.println("Bye-bye");
                 break;
             }
@@ -84,29 +83,29 @@ public class Main {
     }
 
     public void mainmenu() { //menu awal
-        System.out.println("Penghitung biaya listrik (By Syamsuddin & Averill)");
+        System.out.println("\nPenghitung biaya listrik (By Syamsuddin & Averill)");
         System.out.println("");
-        System.out.println("================");
-        System.out.println("Menu:");
-        System.out.println("1. Hitung");
-        System.out.println("2. Bantuan");
-        System.out.println("3. Keluar");
-        System.out.println("================");
+        System.out.println("=====================");
+        System.out.println(" Menu:");
+        System.out.println(" 1. Hitung");
+        System.out.println(" 2. Bantuan");
+        System.out.println(" 3. Keluar");
+        System.out.println("=====================");
         System.out.print("Pilih menu (1-3): ");
     }
 
     public void menuhitung() { //menu bagian hitung
         System.out.println("");
-        System.out.println("====================");
-        System.out.println("    HITUNG BIAYA    ");
-        System.out.println("====================");
+        System.out.println("=====================");
+        System.out.println("     HITUNG BIAYA    ");
+        System.out.println("=====================");
         System.out.println("1. Pilih Kategori Listrik");
         System.out.println("2. Tambahkan barang");
         System.out.println("3. Update data barang");
         System.out.println("4. Hapus barang");
         System.out.println("5. Hitung total biaya");
-        System.out.println("6. Exit");
-        System.out.println("====================");
+        System.out.println("6. Back");
+        System.out.println("=====================");
         System.out.print("Pilih menu (1-6): ");
     }
 
@@ -126,9 +125,38 @@ public class Main {
         System.out.print("Pilih (1-7): ");
     }
 
-    public void daftarbarang(String barang[]) {
+    public void jenisBarang(String barang[]) {
         for (int i = 0; i < barang.length; i++) {
             System.out.println((i + 1) + ". " + barang[i]);
+        }
+    }
+    
+    public void daftarBarang(int pilih){
+        switch (pilih){
+            case 1:
+//                System.out.println("1. LED (4, 6, 10, 13, 18 Watt)"
+//                        + "\n2. CFL (6, 9, 12, 15, 20 Watt)"
+//                        + "\n3. Halogen (18, 28, 42, 53, 70 W)"
+//                        + "\n4. Standard (25, 40, 60, 75, 100 W)");
+                System.out.println("Lampu :");
+                System.out.println("1.  4 Watt"
+                        + "\n2.  6 Watt"
+                        + "\n3.  9 Watt"
+                        + "\n4.  10 Watt"
+                        + "\n5.  12 Watt"
+                        + "\n6.  13 Watt"
+                        + "\n7.  15 Watt"
+                        + "\n8.  18 Watt"
+                        + "\n9.  20 Watt"
+                        + "\n10. 25 Watt"
+                        + "\n11. 28 Watt"
+                        + "\n12. 40 Watt"
+                        + "\n13. 42 Watt"
+                        + "\n14. 53 Watt"
+                        + "\n15. 60 Watt"
+                        + "\n16. 70 Watt"
+                        + "\n17. 75 Watt"
+                        + "\n18. 100 Watt");
         }
     }
 }
