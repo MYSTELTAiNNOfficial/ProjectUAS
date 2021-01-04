@@ -27,28 +27,30 @@ public class Main {
 
         String confirm = "n";
 
-        String golongan[][] = new String[7][3];
-        golongan[0][0] = "R-1/TR";
-        golongan[0][1] = "450";
-        golongan[0][2] = "165";
-        golongan[1][0] = "R-1/TR";
-        golongan[1][1] = "900";
-        golongan[1][2] = "274";
-        golongan[2][0] = "R-1M/TR";
-        golongan[2][1] = "900";
-        golongan[2][2] = "1352";
-        golongan[3][0] = "R-1/TR";
-        golongan[3][1] = "1300";
-        golongan[3][2] = "1444,70";
-        golongan[4][0] = "R-1/TR";
-        golongan[4][1] = "2200";
-        golongan[4][2] = "1444,70";
-        golongan[5][0] = "R-2/TR";
-        golongan[5][1] = "5500";
-        golongan[5][2] = "1444,70";
-        golongan[6][0] = "R-3/TR";
-        golongan[6][1] = ">5500"; //diatas 5500
-        golongan[6][2] = "1444,70";
+        String golongan[] = new String[7];
+        long listrik[] = new long[7];
+        double biaya[] = new double[7];
+        golongan[0] = "R-1/TR";
+        listrik[0] = 450;
+        biaya[0] = 165;
+        golongan[1] = "R-1/TR";
+        listrik[1] = 900;
+        biaya[1] = 274;
+        golongan[2] = "R-1M/TR";
+        listrik[2] = 900;
+        biaya[2] = 1352;
+        golongan[3] = "R-1/TR";
+        listrik[3] = 1300;
+        biaya[3] = 1444.70;
+        golongan[4] = "R-1/TR";
+        listrik[4] = 2200;
+        biaya[4] = 1444.70;
+        golongan[5] = "R-2/TR";
+        listrik[5] = 5500;
+        biaya[5] = 1444.70;
+        golongan[6] = "R-3/TR";
+        listrik[6] = 5501; //diatas 5500
+        biaya[6] = 1444.70;
         String barang[] = {"Lampu", "Rice Cooker", "Kulkas", "AC", "Setrika", "Mesin Cuci"}; //[] pertama = tipe,
         do {
             gate.mainmenu(); //panggil menu
@@ -62,16 +64,22 @@ public class Main {
                         gate.daftargolongan();
                         int temp = scan.nextInt();
                         temp--;
-                        System.out.println("Golongan : " + golongan[temp][0]);
-                        System.out.println("Daya Max : " + golongan[temp][1] + " VA");
-                        System.out.println("Biaya    : Rp." + golongan[temp][2] + "/KWh");
+                        System.out.println("Golongan : " + golongan[temp]);
+                        if (temp == 6) {
+                            System.out.println("Daya Max : > " + listrik[temp] + " VA");
+                        }else{
+                            System.out.println("Daya Max : " + listrik[temp] + " VA");
+                        }
+                        System.out.println("Biaya    : Rp." + biaya[temp] + "/KWh");
                         System.out.print("Lanjutkan Proses? (Y/N)");
                         confirm = scan.next() + scan.nextLine();
                     } else if (menu1 == 2) {
                         gate.jenisBarang(barang);
                         int pilih = scan.nextInt();
                         gate.daftarBarang(pilih);
-                    } else if (menu1 == 6) break;
+                    } else if (menu1 == 6) {
+                        break;
+                    }
                 } while (confirm.equalsIgnoreCase("y"));
             } else if (menu == 2) {
 
@@ -114,13 +122,13 @@ public class Main {
         System.out.println("=====================");
         System.out.println("List Golongan listrik");
         System.out.println("=====================");
-        System.out.println("1. R-1/TR  (0-450 VA)");
-        System.out.println("2. R-1/TR  (451-900 VA)");
+        System.out.println("1. R-1/TR  (0 - 450 VA)");
+        System.out.println("2. R-1/TR  (451 - 900 VA)");
         System.out.println("3. R-1M/TR (451 - 900 VA)");
         System.out.println("4. R-1/TR  (901 - 1300 VA)");
         System.out.println("5. R-1/TR  (1301 - 2200 VA)");
         System.out.println("6. R-2/TR  (2201 - 5500 VA)");
-        System.out.println("7. R-3/TR  (> 5500 VA)");
+        System.out.println("7. R-3/TR  (diatas 5500 VA)");
         System.out.println("=====================");
         System.out.print("Pilih (1-7): ");
     }
@@ -130,9 +138,9 @@ public class Main {
             System.out.println((i + 1) + ". " + barang[i]);
         }
     }
-    
-    public void daftarBarang(int pilih){
-        switch (pilih){
+
+    public void daftarBarang(int pilih) {
+        switch (pilih) {
             case 1:
 //                System.out.println("1. LED (4, 6, 10, 13, 18 Watt)"
 //                        + "\n2. CFL (6, 9, 12, 15, 20 Watt)"
