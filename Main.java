@@ -28,6 +28,9 @@ public class Main {
         String confirm = "n";
 
         String golongan[] = new String[7];
+        String gol_temp = null; // untuk tampilan dan beberapa fungsi lain
+        long lis_temp = 0;      // untuk tampilan
+        double bia_temp = 0;    // untuk tampilan
         long listrik[] = new long[7];
         double biaya[] = new double[7];
         golongan[0] = "R-1/TR";
@@ -58,16 +61,19 @@ public class Main {
 
             if (menu == 1) {
                 do {
-                    gate.menuhitung();
+                    gate.menuhitung(gol_temp, lis_temp, bia_temp);
                     int menu1 = scan.nextInt();
                     if (menu1 == 1) {
                         gate.daftargolongan();
                         int temp = scan.nextInt();
                         temp--;
+                        gol_temp = golongan[temp];
+                        lis_temp = listrik[temp];
+                        bia_temp = biaya[temp];
                         System.out.println("Golongan : " + golongan[temp]);
                         if (temp == 6) {
                             System.out.println("Daya Max : > " + listrik[temp] + " VA");
-                        }else{
+                        } else {
                             System.out.println("Daya Max : " + listrik[temp] + " VA");
                         }
                         System.out.println("Biaya    : Rp." + biaya[temp] + "/KWh");
@@ -102,8 +108,10 @@ public class Main {
         System.out.print("Pilih menu (1-3): ");
     }
 
-    public void menuhitung() { //menu bagian hitung
+    public void menuhitung(String gol_temp, long lis_temp, double bia_temp) { //menu bagian hitung
         System.out.println("");
+        System.out.println("=====================");
+        System.out.println(gol_temp + " | " + lis_temp + " | " + bia_temp);
         System.out.println("=====================");
         System.out.println("     HITUNG BIAYA    ");
         System.out.println("=====================");
