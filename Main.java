@@ -28,7 +28,7 @@ public class Main {
         String confirm = "n";
 
         String golongan[] = new String[7];
-        String gol_temp = null; // untuk tampilan dan beberapa fungsi lain
+        String gol_temp = "Belum Pilih"; // untuk tampilan dan beberapa fungsi lain
         long lis_temp = 0;      // untuk tampilan
         double bia_temp = 0;    // untuk tampilan
         long listrik[] = new long[7];
@@ -83,12 +83,13 @@ public class Main {
                         gate.jenisBarang(barang);
                         int pilih = scan.nextInt();
                         gate.daftarBarang(pilih);
+
                     } else if (menu1 == 6) {
                         break;
                     }
                 } while (confirm.equalsIgnoreCase("y"));
             } else if (menu == 2) {
-
+                gate.contact();
             } else if (menu == 3) {
                 System.out.println("Bye-bye");
                 break;
@@ -111,7 +112,7 @@ public class Main {
     public void menuhitung(String gol_temp, long lis_temp, double bia_temp) { //menu bagian hitung
         System.out.println("");
         System.out.println("=====================");
-        System.out.println(gol_temp + " | " + lis_temp + " | " + bia_temp);
+        System.out.println(gol_temp + " | " + lis_temp + " | " + bia_temp + "/KWh");
         System.out.println("=====================");
         System.out.println("     HITUNG BIAYA    ");
         System.out.println("=====================");
@@ -154,7 +155,7 @@ public class Main {
 //                        + "\n2. CFL (6, 9, 12, 15, 20 Watt)"
 //                        + "\n3. Halogen (18, 28, 42, 53, 70 W)"
 //                        + "\n4. Standard (25, 40, 60, 75, 100 W)");
-                System.out.println("Lampu :");
+                System.out.println("Lampu : ");
                 System.out.println("1.  4 Watt"
                         + "\n2.  6 Watt"
                         + "\n3.  9 Watt"
@@ -173,6 +174,26 @@ public class Main {
                         + "\n16. 70 Watt"
                         + "\n17. 75 Watt"
                         + "\n18. 100 Watt");
+            case 2:
+                System.out.println("Rice Cooker : ");
         }
+    }
+
+//    public int hitung(double bia_temp, double data []){
+//        double harga;
+//        int KWh;
+//        for (int i = 0; i<data.length;i++){
+//            KWh = data[i]
+//        }
+//         
+//        harga = bia_temp * KWh
+//        return harga;
+//    }
+    public void contact() {
+        System.out.println("Contact Us : "
+                + "\n- e-mail  \t: "
+                + "\n- WhatsApp\t:"
+                + "\n- LINE    \t:");
+
     }
 }
