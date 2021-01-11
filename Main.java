@@ -31,6 +31,8 @@ public class Main {
         String gol_temp = "Belum Pilih"; // untuk tampilan dan beberapa fungsi lain
         long lis_temp = 0;      // untuk tampilan
         double bia_temp = 0;    // untuk tampilan
+        int counter1 = 0;
+        String list[][] = new String[counter1][5];
         long listrik[] = new long[7];
         double biaya[] = new double[7];
         golongan[0] = "R-1/TR";
@@ -77,13 +79,28 @@ public class Main {
                             System.out.println("Daya Max : " + listrik[temp] + " VA");
                         }
                         System.out.println("Biaya    : Rp." + biaya[temp] + "/KWh");
-                        System.out.print("Lanjutkan Proses? (Y/N)");
+                        System.out.print("Lanjutkan Proses (Y/N)? ");
                         confirm = scan.next() + scan.nextLine();
                     } else if (menu1 == 2) {
+<<<<<<< Updated upstream
                         gate.jenisBarang(barang);
                         int pilih = scan.nextInt();
                         gate.daftarBarang(pilih);
 
+=======
+                        do {
+                            System.out.println("Tambahkan barang (Y/N)? ");
+                            String yn = scan.next();
+                            if (yn.equalsIgnoreCase("Y")) {
+                                counter1++;
+                                gate.jenisBarang(barang);
+                                int pilih = scan.nextInt();
+                                gate.daftarBarang(pilih);
+                            } else if (false) {
+                                break;
+                            }
+                        } while (true);
+>>>>>>> Stashed changes
                     } else if (menu1 == 6) {
                         break;
                     }
@@ -142,10 +159,19 @@ public class Main {
         System.out.print("Pilih (1-7): ");
     }
 
-    public void jenisBarang(String barang[]) {
-        for (int i = 0; i < barang.length; i++) {
-            System.out.println((i + 1) + ". " + barang[i]);
-        }
+    public void jenisBarang(String barang[]) { //menu jenis barang pada saat menambahkan barang
+        System.out.println("");
+        System.out.println("=====================");
+        System.out.println("    Jenis Barang");
+        System.out.println("=====================");
+        System.out.println("1. Lampu");
+        System.out.println("2. Rice Cooker");
+        System.out.println("3. Kulkas");
+        System.out.println("4. AC");
+        System.out.println("5. Setrika");
+        System.out.println("6. Mesin Cuci");
+        System.out.println("=====================");
+        System.out.print("Pilih (1-6: ");
     }
 
     public void daftarBarang(int pilih) {
