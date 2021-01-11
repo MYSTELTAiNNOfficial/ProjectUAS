@@ -82,25 +82,21 @@ public class Main {
                         System.out.print("Lanjutkan Proses (Y/N)? ");
                         confirm = scan.next() + scan.nextLine();
                     } else if (menu1 == 2) {
-<<<<<<< Updated upstream
                         gate.jenisBarang(barang);
                         int pilih = scan.nextInt();
                         gate.daftarBarang(pilih);
-
-=======
                         do {
                             System.out.println("Tambahkan barang (Y/N)? ");
                             String yn = scan.next();
                             if (yn.equalsIgnoreCase("Y")) {
                                 counter1++;
                                 gate.jenisBarang(barang);
-                                int pilih = scan.nextInt();
-                                gate.daftarBarang(pilih);
+                                int pilih1 = scan.nextInt();
+                                gate.daftarBarang(pilih1);
                             } else if (false) {
                                 break;
                             }
                         } while (true);
->>>>>>> Stashed changes
                     } else if (menu1 == 6) {
                         break;
                     }
