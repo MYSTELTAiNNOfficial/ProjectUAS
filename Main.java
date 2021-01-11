@@ -54,7 +54,7 @@ public class Main {
         golongan[6] = "R-3/TR";
         listrik[6] = 5501; //diatas 5500
         biaya[6] = 1444.70;
-        String barang[] = {"Lampu", "Rice Cooker", "Kulkas", "AC", "Setrika", "Mesin Cuci"}; //[] pertama = tipe,
+        String barang[] = {"Lampu", "Rice Cooker", "Kulkas", "AC", "Setrika", "Mesin Cuci", "Kipas Angin"}; //[] pertama = tipe,
         do {
             gate.mainmenu(); //panggil menu
             int menu = scan.nextInt();
@@ -176,6 +176,17 @@ public class Main {
                         + "\n18. 100 Watt");
             case 2:
                 System.out.println("Rice Cooker : ");
+            case 3:
+                System.out.println("Kulkas : ");
+            case 4:
+                System.out.println("AC : ");
+            case 5:
+                System.out.println("Setrika : ");
+            case 6:
+                System.out.println("Mesin Cuci : ");
+            case 7:
+                System.out.println("Kipas Angin : ");
+                
         }
     }
 
