@@ -34,10 +34,10 @@ public class Main {
         String gol_temp = "-"; // untuk tampilan dan beberapa fungsi lain
         String lis_temp = "-";      // untuk tampilan
         double bia_temp = 0;    // untuk tampilan
-        
+
         int counter1 = 0;
         String list[][] = new String[counter1][5];
-        
+
         golongan[0] = "R-1/TR";
         listrik[0] = "450";
         biaya[0] = 165;
@@ -59,7 +59,7 @@ public class Main {
         golongan[6] = "R-3/TR";
         listrik[6] = "> 5500"; //diatas 5500
         biaya[6] = 1444.70;
-        
+
         String barang[] = {"Lampu", "Rice Cooker", "Kulkas", "AC", "Setrika", "Mesin Cuci", "Kipas Angin"}; //[] pertama = tipe,
         int lampu[] = {4, 6, 9, 10, 12, 13, 15, 18, 20, 25, 28, 40, 42, 53, 60, 70, 75, 100};
         int rcook[] = {200, 300, 350, 395, 400, 980};
@@ -68,9 +68,9 @@ public class Main {
         int Setrika[] = {150, 300, 350, 395, 400, 450, 1300, 2400};
         int mcuci[] = {220, 325, 350, 450};
         int kangin[] = {5, 30, 35, 45, 50, 70, 80, 90};
-             
+
         ArrayList<Double> daftar = new ArrayList<>(5); //array list
-        
+
         do {
             gate.mainmenu(); //panggil menu
             int menu = scan.nextInt();
@@ -82,15 +82,13 @@ public class Main {
                         gate.daftargolongan();
                         int temp = scan.nextInt();
                         temp--;
-                        gol_temp = golongan[temp];
-                        lis_temp = listrik[temp];
-                        bia_temp = biaya[temp];
-                        System.out.println("Golongan : " + gol_temp);
-                        if (temp == 6) {
-                            System.out.println("Daya Max : > " + listrik[temp] + " VA");
-                        } else {
-                            System.out.println("Daya Max : " + listrik[temp] + " VA");
-                        }
+//                        gol_temp = golongan[temp];
+//                        lis_temp = listrik[temp];
+//                        bia_temp = biaya[temp];
+                        System.out.println("Golongan : " + golongan[temp]);
+
+                        System.out.println("Daya Max : " + listrik[temp] + " VA");
+
                         System.out.println("Biaya    : Rp." + biaya[temp] + "/KWh");
                         System.out.print("Lanjutkan Proses (Y/N)? ");
                         confirm = scan.next() + scan.nextLine();
