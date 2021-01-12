@@ -69,9 +69,9 @@ public class Main {
         int mcuci[] = {220, 325, 350, 450};
         int kangin[] = {5, 30, 35, 45, 50, 70, 80, 90};
 
-        ArrayList<Integer> daftarWatt = new ArrayList<>(5); //array list
-        ArrayList<Integer> daftarJumlah = new ArrayList<>(5);
-        ArrayList<Integer> daftarWaktu = new ArrayList<>(5);
+        ArrayList<Integer[]> daftar = new ArrayList<>();//array list
+//        ArrayList<Integer> daftarJumlah = new ArrayList<>(5);
+//        ArrayList<Integer> daftarWaktu = new ArrayList<>(5);
 
         do {
             gate.mainmenu(); //panggil menu
@@ -100,28 +100,31 @@ public class Main {
                             int no = scan.nextInt();
 
                             if (pilih == 1) { //lampu
-                                daftarWatt.add(lampu[no - 1]);
-
-                            } else if (pilih == 2) { //Rice Coooker
-                                daftarWatt.add(rcook[no - 1]);
-                            } else if (pilih == 3) { //Kulkas
-                                daftarWatt.add(kulkas[no - 1]);
-                            } else if (pilih == 4) { //AC
-                                daftarWatt.add(AC[no - 1]);
-                            } else if (pilih == 5) { //Setrika
-                                daftarWatt.add(Setrika[no - 1]);
-                            } else if (pilih == 6) { //Mecin Cuci
-                                daftarWatt.add(mcuci[no - 1]);
-                            } else if (pilih == 7) { //Kipas Angin
-                                daftarWatt.add(kangin[no - 1]);
+                                System.out.print("Jumlah Lampu : ");
+                                int jumlah = scan.nextInt();
+                                System.out.print("Lama Pemakaian : ");
+                                int waktu = scan.nextInt();
+                                Integer[] myInt1 = {lampu[no - 1], jumlah, waktu};
+                                daftar.add(myInt1);
+//                            } else if (pilih == 2) { //Rice Coooker
+//                                daftar.add(rcook[no - 1]);
+//                            } else if (pilih == 3) { //Kulkas
+//                                daftar.add(kulkas[no - 1]);
+//                            } else if (pilih == 4) { //AC
+//                                daftaradd(AC[no - 1]);
+//                            } else if (pilih == 5) { //Setrika
+//                                daftar.add(Setrika[no - 1]);
+//                            } else if (pilih == 6) { //Mecin Cuci
+//                                daftar.add(mcuci[no - 1]);
+//                            } else if (pilih == 7) { //Kipas Angin
+//                                daftar.add(kangin[no - 1]);
                             }
 
                             System.out.println("Tambahkan barang (Y/n)? ");
                             yn = scan.next();
 
                         } while (yn.equalsIgnoreCase("Y"));
-                        System.out.println(daftarWatt);
-
+                        
                     } else if (menu1 == 6) {
                         break;
                     }
@@ -133,12 +136,13 @@ public class Main {
                 System.out.println("Bye-bye");
                 break;
             }
-        } while (true||confirm.equalsIgnoreCase("Y"));
+        } while (true || confirm.equalsIgnoreCase("Y"));
     }
 
     public void mainmenu() { //menu awal
-        for (int i = 0; i < 25; i++) 
+        for (int i = 0; i < 25; i++) {
             System.out.println("");
+        }
         System.out.println("DenCalc (Denkidai Calculator)"
                 + "\nPenghitung Biaya Tagihan Listrik (By Syamsuddin & Averill)");
         System.out.println("=====================");
