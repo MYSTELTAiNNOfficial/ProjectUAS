@@ -27,6 +27,7 @@ public class Main {
         Scanner scan = new Scanner(System.in);
 
         String confirm = "n";
+        String yn = "n";
 
         String golongan[] = new String[7];
         String listrik[] = new String[7];
@@ -37,7 +38,6 @@ public class Main {
 
 //        int counter1 = 0;
 //        String list[][] = new String[counter1][5];
-
         golongan[0] = "R-1/TR";
         listrik[0] = "450";
         biaya[0] = 165;
@@ -69,9 +69,9 @@ public class Main {
         int mcuci[] = {220, 325, 350, 450};
         int kangin[] = {5, 30, 35, 45, 50, 70, 80, 90};
 
-        ArrayList<Double> daftarWatt = new ArrayList<>(5); //array list
-        ArrayList<Double> daftarJumlah = new ArrayList<>(5);
-        ArrayList<Double> daftarWaktu = new ArrayList<>(5);
+        ArrayList<Integer> daftarWatt = new ArrayList<>(5); //array list
+        ArrayList<Integer> daftarJumlah = new ArrayList<>(5);
+        ArrayList<Integer> daftarWaktu = new ArrayList<>(5);
 
         do {
             gate.mainmenu(); //panggil menu
@@ -89,24 +89,39 @@ public class Main {
                         System.out.println("Biaya    : Rp." + biaya[temp] + "/KWh");
                         System.out.print("Lanjutkan Proses (Y/N)? ");
                         confirm = scan.next() + scan.nextLine();
-                        
+
                     } else if (menu1 == 2) {
-                        gate.jenisBarang(barang);
-                        int pilih = scan.nextInt();
-                        gate.daftarBarang(pilih, lampu, rcook, kulkas, AC, Setrika, mcuci, kangin);
-                        System.out.print("Pilih : ");
-                        int watt = scan.nextInt();
-//                        do {
-//                            System.out.println("Tambahkan barang (Y/N)? ");
-//                            String yn = scan.next();
-//                            if (yn.equalsIgnoreCase("Y")) {
-//                                gate.jenisBarang(barang);
-//                                pilih = scan.nextInt();
-//                                gate.daftarBarang(pilih, lampu, rcook, kulkas, AC, Setrika, mcuci, kangin);
-//                            } else if (false) {
-////                                break;
-////                            }
-//                        } while (true);
+                        do {
+                            gate.jenisBarang(barang);
+                            int pilih = scan.nextInt();
+
+                            gate.daftarBarang(pilih, lampu, rcook, kulkas, AC, Setrika, mcuci, kangin);
+                            System.out.print("Pilih : ");
+                            int no = scan.nextInt();
+
+                            if (pilih == 1) { //lampu
+                                daftarWatt.add(lampu[no - 1]);
+
+                            } else if (pilih == 2) { //Rice Coooker
+                                daftarWatt.add(rcook[no - 1]);
+
+                            } else if (pilih == 3) { //Kulkas
+
+                            } else if (pilih == 4) { //AC
+
+                            } else if (pilih == 5) { //Setrika
+
+                            } else if (pilih == 6) { //Mecin Cuci
+
+                            } else if (pilih == 7) { //Kipas Angin
+
+                            }
+
+                            System.out.println("Tambahkan barang (Y/N)? ");
+                            yn = scan.next();
+
+                        } while (yn.equalsIgnoreCase("Y"));
+                        System.out.println(daftarWatt);
 
                     } else if (menu1 == 6) {
                         break;
@@ -122,7 +137,8 @@ public class Main {
     }
 
     public void mainmenu() { //menu awal
-        System.out.println("\nPenghitung biaya listrik (By Syamsuddin & Averill)");
+        System.out.println("\tDenCalc (Denkikai Calculator)"
+                + "\nPenghitung Biaya Tagihan Listrik (By Syamsuddin & Averill)");
         System.out.println("");
         System.out.println("=====================");
         System.out.println(" Menu:");
