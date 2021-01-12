@@ -29,31 +29,35 @@ public class Main {
         String confirm = "n";
 
         String golongan[] = new String[7];
-        String gol_temp = "Belum Pilih"; // untuk tampilan dan beberapa fungsi lain
-        long lis_temp = 0;      // untuk tampilan
-        double bia_temp = 0;    // untuk tampilan
-        long listrik[] = new long[7];
+        String listrik[] = new String[7];
         double biaya[] = new double[7];
+        String gol_temp = "-"; // untuk tampilan dan beberapa fungsi lain
+        String lis_temp = "-";      // untuk tampilan
+        double bia_temp = 0;    // untuk tampilan
+        
+        int counter1 = 0;
+        String list[][] = new String[counter1][5];
+        
         golongan[0] = "R-1/TR";
-        listrik[0] = 450;
+        listrik[0] = "450";
         biaya[0] = 165;
         golongan[1] = "R-1/TR";
-        listrik[1] = 900;
+        listrik[1] = "900";
         biaya[1] = 274;
         golongan[2] = "R-1M/TR";
-        listrik[2] = 900;
+        listrik[2] = "900";
         biaya[2] = 1352;
         golongan[3] = "R-1/TR";
-        listrik[3] = 1300;
+        listrik[3] = "1300";
         biaya[3] = 1444.70;
         golongan[4] = "R-1/TR";
-        listrik[4] = 2200;
+        listrik[4] = "2200";
         biaya[4] = 1444.70;
         golongan[5] = "R-2/TR";
-        listrik[5] = 5500;
+        listrik[5] = "5500";
         biaya[5] = 1444.70;
         golongan[6] = "R-3/TR";
-        listrik[6] = 5501; //diatas 5500
+        listrik[6] = "> 5500"; //diatas 5500
         biaya[6] = 1444.70;
         
         String barang[] = {"Lampu", "Rice Cooker", "Kulkas", "AC", "Setrika", "Mesin Cuci", "Kipas Angin"}; //[] pertama = tipe,
@@ -70,7 +74,6 @@ public class Main {
         do {
             gate.mainmenu(); //panggil menu
             int menu = scan.nextInt();
-
             if (menu == 1) {
                 do {
                     gate.menuhitung(gol_temp, lis_temp, bia_temp);
@@ -82,20 +85,34 @@ public class Main {
                         gol_temp = golongan[temp];
                         lis_temp = listrik[temp];
                         bia_temp = biaya[temp];
-                        System.out.println("Golongan : " + golongan[temp]);
+                        System.out.println("Golongan : " + gol_temp);
                         if (temp == 6) {
                             System.out.println("Daya Max : > " + listrik[temp] + " VA");
                         } else {
                             System.out.println("Daya Max : " + listrik[temp] + " VA");
                         }
                         System.out.println("Biaya    : Rp." + biaya[temp] + "/KWh");
-                        System.out.print("Lanjutkan Proses? (Y/N)");
+                        System.out.print("Lanjutkan Proses (Y/N)? ");
                         confirm = scan.next() + scan.nextLine();
                     } else if (menu1 == 2) {
                         gate.jenisBarang(barang);
                         System.out.print("Pilih : ");
                         int pilih = scan.nextInt();
+
                         gate.daftarBarang(pilih, lampu, rcook, kulkas, AC, Setrika, mcuci, kangin);
+
+                        do {
+                            System.out.println("Tambahkan barang (Y/N)? ");
+                            String yn = scan.next();
+                            if (yn.equalsIgnoreCase("Y")) {
+                                counter1++;
+                                gate.jenisBarang(barang);
+                                pilih = scan.nextInt();
+                                gate.daftarBarang(pilih, lampu, rcook, kulkas, AC, Setrika, mcuci, kangin);
+                            } else if (false) {
+                                break;
+                            }
+                        } while (true);
 
                     } else if (menu1 == 6) {
                         break;
@@ -122,10 +139,10 @@ public class Main {
         System.out.print("Pilih menu (1-3): ");
     }
 
-    public void menuhitung(String gol_temp, long lis_temp, double bia_temp) { //menu bagian hitung
+    public void menuhitung(String gol_temp, String lis_temp, double bia_temp) { //menu bagian hitung
         System.out.println("");
         System.out.println("=====================");
-        System.out.println(gol_temp + " | " + lis_temp + " | " + bia_temp + "/KWh");
+        System.out.println(gol_temp + " | " + lis_temp + " VA | " + "Rp. " + bia_temp + "/KWh");
         System.out.println("=====================");
         System.out.println("     HITUNG BIAYA    ");
         System.out.println("=====================");
@@ -155,10 +172,19 @@ public class Main {
         System.out.print("Pilih (1-7): ");
     }
 
-    public void jenisBarang(String barang[]) {
-        for (int i = 0; i < barang.length; i++) {
-            System.out.println((i + 1) + ". " + barang[i]);
-        }
+    public void jenisBarang(String barang[]) { //menu jenis barang pada saat menambahkan barang
+        System.out.println("");
+        System.out.println("=====================");
+        System.out.println("    Jenis Barang");
+        System.out.println("=====================");
+        System.out.println("1. Lampu");
+        System.out.println("2. Rice Cooker");
+        System.out.println("3. Kulkas");
+        System.out.println("4. AC");
+        System.out.println("5. Setrika");
+        System.out.println("6. Mesin Cuci");
+        System.out.println("=====================");
+        System.out.print("Pilih (1-6: ");
     }
 
     public void daftarBarang(int pilih, int lampu[], int rcook[], int kulkas[], int AC[], int Setrika[], int mcuci[], int kangin[]) {
