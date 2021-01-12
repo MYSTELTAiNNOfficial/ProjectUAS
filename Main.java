@@ -87,7 +87,7 @@ public class Main {
                         System.out.println("Golongan : " + golongan[temp]);
                         System.out.println("Daya Max : " + listrik[temp] + " VA");
                         System.out.println("Biaya    : Rp." + biaya[temp] + "/KWh");
-                        System.out.print("Lanjutkan Proses (Y/N)? ");
+                        System.out.print("Lanjutkan Proses (Y/n)? ");
                         confirm = scan.next() + scan.nextLine();
 
                     } else if (menu1 == 2) {
@@ -104,20 +104,19 @@ public class Main {
 
                             } else if (pilih == 2) { //Rice Coooker
                                 daftarWatt.add(rcook[no - 1]);
-
                             } else if (pilih == 3) { //Kulkas
-
+                                daftarWatt.add(kulkas[no - 1]);
                             } else if (pilih == 4) { //AC
-
+                                daftarWatt.add(AC[no - 1]);
                             } else if (pilih == 5) { //Setrika
-
+                                daftarWatt.add(Setrika[no - 1]);
                             } else if (pilih == 6) { //Mecin Cuci
-
+                                daftarWatt.add(mcuci[no - 1]);
                             } else if (pilih == 7) { //Kipas Angin
-
+                                daftarWatt.add(kangin[no - 1]);
                             }
 
-                            System.out.println("Tambahkan barang (Y/N)? ");
+                            System.out.println("Tambahkan barang (Y/n)? ");
                             yn = scan.next();
 
                         } while (yn.equalsIgnoreCase("Y"));
@@ -129,17 +128,19 @@ public class Main {
                 } while (confirm.equalsIgnoreCase("y"));
             } else if (menu == 2) {
                 gate.contact();
+                confirm = scan.next() + scan.nextLine();
             } else if (menu == 3) {
                 System.out.println("Bye-bye");
                 break;
             }
-        } while (true);
+        } while (true||confirm.equalsIgnoreCase("Y"));
     }
 
     public void mainmenu() { //menu awal
-        System.out.println("\tDenCalc (Denkikai Calculator)"
+        for (int i = 0; i < 25; i++) 
+            System.out.println("");
+        System.out.println("DenCalc (Denkidai Calculator)"
                 + "\nPenghitung Biaya Tagihan Listrik (By Syamsuddin & Averill)");
-        System.out.println("");
         System.out.println("=====================");
         System.out.println(" Menu:");
         System.out.println(" 1. Hitung");
@@ -242,6 +243,6 @@ public class Main {
                 + "\n- e-mail  \t: "
                 + "\n- WhatsApp\t:"
                 + "\n- LINE    \t:");
-
+        System.out.print("Back (Y/n)? ");
     }
 }
