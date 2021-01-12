@@ -18,6 +18,7 @@
  * @author Syamsuddin & Averill
  */
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -69,9 +70,9 @@ public class Main {
         int mcuci[] = {220, 325, 350, 450};
         int kangin[] = {5, 30, 35, 45, 50, 70, 80, 90};
 
-        ArrayList<Integer[]> daftar = new ArrayList<>();//array list
-//        ArrayList<Integer> daftarJumlah = new ArrayList<>(5);
-//        ArrayList<Integer> daftarWaktu = new ArrayList<>(5);
+        ArrayList<Integer> Watt = new ArrayList<>();//array list
+        ArrayList<Integer> Jumlah = new ArrayList<>();
+        ArrayList<Integer> Waktu = new ArrayList<>();
 
         do {
             gate.mainmenu(); //panggil menu
@@ -100,29 +101,68 @@ public class Main {
                             int no = scan.nextInt();
 
                             if (pilih == 1) { //lampu
+                                Watt.add(lampu[no-1]);
                                 System.out.print("Jumlah Lampu : ");
                                 int jumlah = scan.nextInt();
-                                System.out.print("Lama Pemakaian : ");
+                                Jumlah.add(jumlah);
+                                System.out.print("Lama Pemakaian (Akumulasi): ");
                                 int waktu = scan.nextInt();
-                                Integer[] myInt1 = {lampu[no - 1], jumlah, waktu};
-                                daftar.add(myInt1);
-//                            } else if (pilih == 2) { //Rice Coooker
-//                                daftar.add(rcook[no - 1]);
-//                            } else if (pilih == 3) { //Kulkas
-//                                daftar.add(kulkas[no - 1]);
-//                            } else if (pilih == 4) { //AC
-//                                daftaradd(AC[no - 1]);
-//                            } else if (pilih == 5) { //Setrika
-//                                daftar.add(Setrika[no - 1]);
-//                            } else if (pilih == 6) { //Mecin Cuci
-//                                daftar.add(mcuci[no - 1]);
-//                            } else if (pilih == 7) { //Kipas Angin
-//                                daftar.add(kangin[no - 1]);
+                                Waktu.add(waktu);
+                            } else if (pilih == 2) { //Rice Coooker
+                                Watt.add(rcook[no-1]);
+                                System.out.print("Jumlah Rice Cooker : ");
+                                int jumlah = scan.nextInt();
+                                Jumlah.add(jumlah);
+                                System.out.print("Lama Pemakaian (Akumulasi): ");
+                                int waktu = scan.nextInt();
+                                Waktu.add(waktu);
+                            } else if (pilih == 3) { //Kulkas
+                                Watt.add(kulkas[no-1]);
+                                System.out.print("Jumlah Kulkas : ");
+                                int jumlah = scan.nextInt();
+                                Jumlah.add(jumlah);
+                                System.out.print("Lama Pemakaian (Akumulasi): ");
+                                int waktu = scan.nextInt();
+                                Waktu.add(waktu);
+                            } else if (pilih == 4) { //AC
+                                Watt.add(AC[no-1]);
+                                System.out.print("Jumlah AC : ");
+                                int jumlah = scan.nextInt();
+                                Jumlah.add(jumlah);
+                                System.out.print("Lama Pemakaian (Akumulasi): ");
+                                int waktu = scan.nextInt();
+                                Waktu.add(waktu);
+                            } else if (pilih == 5) { //Setrika
+                                Watt.add(Setrika[no-1]);
+                                System.out.print("Jumlah Setrika : ");
+                                int jumlah = scan.nextInt();
+                                Jumlah.add(jumlah);
+                                System.out.print("Lama Pemakaian (Akumulasi): ");
+                                int waktu = scan.nextInt();
+                                Waktu.add(waktu);
+                            } else if (pilih == 6) { //Mecin Cuci
+                                Watt.add(mcuci[no-1]);
+                                System.out.print("Jumlah Mesin Cuci : ");
+                                int jumlah = scan.nextInt();
+                                Jumlah.add(jumlah);
+                                System.out.print("Lama Pemakaian (Akumulasi): ");
+                                int waktu = scan.nextInt();
+                                Waktu.add(waktu);
+                            } else if (pilih == 7) { //Kipas Angin
+                                Watt.add(kangin[no-1]);
+                                System.out.print("Jumlah Kipas Angin : ");
+                                int jumlah = scan.nextInt();
+                                Jumlah.add(jumlah);
+                                System.out.print("Lama Pemakaian (Akumulasi): ");
+                                int waktu = scan.nextInt();
+                                Waktu.add(waktu);
                             }
 
                             System.out.println("Tambahkan barang (Y/n)? ");
                             yn = scan.next();
-
+                            
+                            System.out.println();
+                            
                         } while (yn.equalsIgnoreCase("Y"));
                         
                     } else if (menu1 == 6) {
@@ -242,6 +282,10 @@ public class Main {
         }
     }
 
+    public void rumus(ArrayList Watt, ArrayList Jumlah, ArrayList Waktu){
+        
+    }
+    
     public void contact() {
         System.out.println("Contact Us : "
                 + "\n- e-mail  \t: "
