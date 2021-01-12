@@ -35,8 +35,8 @@ public class Main {
         String lis_temp = "-";      // untuk tampilan
         double bia_temp = 0;    // untuk tampilan
 
-        int counter1 = 0;
-        String list[][] = new String[counter1][5];
+//        int counter1 = 0;
+//        String list[][] = new String[counter1][5];
 
         golongan[0] = "R-1/TR";
         listrik[0] = "450";
@@ -69,7 +69,9 @@ public class Main {
         int mcuci[] = {220, 325, 350, 450};
         int kangin[] = {5, 30, 35, 45, 50, 70, 80, 90};
 
-        ArrayList<Double> daftar = new ArrayList<>(5); //array list
+        ArrayList<Double> daftarWatt = new ArrayList<>(5); //array list
+        ArrayList<Double> daftarJumlah = new ArrayList<>(5);
+        ArrayList<Double> daftarWaktu = new ArrayList<>(5);
 
         do {
             gate.mainmenu(); //panggil menu
@@ -82,35 +84,29 @@ public class Main {
                         gate.daftargolongan();
                         int temp = scan.nextInt();
                         temp--;
-//                        gol_temp = golongan[temp];
-//                        lis_temp = listrik[temp];
-//                        bia_temp = biaya[temp];
                         System.out.println("Golongan : " + golongan[temp]);
-
                         System.out.println("Daya Max : " + listrik[temp] + " VA");
-
                         System.out.println("Biaya    : Rp." + biaya[temp] + "/KWh");
                         System.out.print("Lanjutkan Proses (Y/N)? ");
                         confirm = scan.next() + scan.nextLine();
+                        
                     } else if (menu1 == 2) {
                         gate.jenisBarang(barang);
-                        System.out.print("Pilih : ");
                         int pilih = scan.nextInt();
-
                         gate.daftarBarang(pilih, lampu, rcook, kulkas, AC, Setrika, mcuci, kangin);
-
-                        do {
-                            System.out.println("Tambahkan barang (Y/N)? ");
-                            String yn = scan.next();
-                            if (yn.equalsIgnoreCase("Y")) {
-                                counter1++;
-                                gate.jenisBarang(barang);
-                                pilih = scan.nextInt();
-                                gate.daftarBarang(pilih, lampu, rcook, kulkas, AC, Setrika, mcuci, kangin);
-                            } else if (false) {
-                                break;
-                            }
-                        } while (true);
+                        System.out.print("Pilih : ");
+                        int watt = scan.nextInt();
+//                        do {
+//                            System.out.println("Tambahkan barang (Y/N)? ");
+//                            String yn = scan.next();
+//                            if (yn.equalsIgnoreCase("Y")) {
+//                                gate.jenisBarang(barang);
+//                                pilih = scan.nextInt();
+//                                gate.daftarBarang(pilih, lampu, rcook, kulkas, AC, Setrika, mcuci, kangin);
+//                            } else if (false) {
+////                                break;
+////                            }
+//                        } while (true);
 
                     } else if (menu1 == 6) {
                         break;
@@ -167,7 +163,7 @@ public class Main {
         System.out.println("6. R-2/TR  (2201 - 5500 VA)");
         System.out.println("7. R-3/TR  (diatas 5500 VA)");
         System.out.println("=====================");
-        System.out.print("Pilih (1-7): ");
+        System.out.print("Pilih menu (1-7): ");
     }
 
     public void jenisBarang(String barang[]) { //menu jenis barang pada saat menambahkan barang
@@ -181,59 +177,50 @@ public class Main {
         System.out.println("4. AC");
         System.out.println("5. Setrika");
         System.out.println("6. Mesin Cuci");
+        System.out.println("7. Kipas Angin");
         System.out.println("=====================");
-        System.out.print("Pilih (1-6: ");
+        System.out.print("Pilih menu (1-7): ");
     }
 
     public void daftarBarang(int pilih, int lampu[], int rcook[], int kulkas[], int AC[], int Setrika[], int mcuci[], int kangin[]) {
         if (pilih == 1) {
             System.out.println("Lampu : ");
             for (int i = 0; i < lampu.length; i++) {
-                System.out.println((i + 1) + ". " + lampu[i] + " W");
+                System.out.println((i + 1) + ". " + lampu[i] + " Watt");
             }
         } else if (pilih == 2) {
             System.out.println("Rice Cooker : ");
             for (int i = 0; i < rcook.length; i++) {
-                System.out.println((i + 1) + ". " + rcook[i] + " W");
+                System.out.println((i + 1) + ". " + rcook[i] + " Watt");
             }
         } else if (pilih == 3) {
             System.out.println("Kulkas : ");
             for (int i = 0; i < kulkas.length; i++) {
-                System.out.println((i + 1) + ". " + kulkas[i] + " W");
+                System.out.println((i + 1) + ". " + kulkas[i] + " Watt");
             }
         } else if (pilih == 4) {
             System.out.println("AC : ");
             for (int i = 0; i < AC.length; i++) {
-                System.out.println((i + 1) + ". " + AC[i] + " W");
+                System.out.println((i + 1) + ". " + AC[i] + " Watt");
             }
         } else if (pilih == 5) {
             System.out.println("Setrika : ");
             for (int i = 0; i < Setrika.length; i++) {
-                System.out.println((i + 1) + ". " + Setrika[i] + " W");
+                System.out.println((i + 1) + ". " + Setrika[i] + " Watt");
             }
         } else if (pilih == 6) {
             System.out.println("Mesin Cuci : ");
             for (int i = 0; i < mcuci.length; i++) {
-                System.out.println((i + 1) + ". " + mcuci[i] + " W");
+                System.out.println((i + 1) + ". " + mcuci[i] + " Watt");
             }
         } else if (pilih == 7) {
             System.out.println("Kipas Angin : ");
             for (int i = 0; i < kangin.length; i++) {
-                System.out.println((i + 1) + ". " + kangin[i] + " W");
+                System.out.println((i + 1) + ". " + kangin[i] + " Watt");
             }
         }
     }
 
-//    public int hitung(double bia_temp, double data []){
-//        double harga;
-//        int KWh;
-//        for (int i = 0; i<data.length;i++){
-//            KWh = data[i]
-//        }
-//         
-//        harga = bia_temp * KWh
-//        return harga;
-//    }
     public void contact() {
         System.out.println("Contact Us : "
                 + "\n- e-mail  \t: "
