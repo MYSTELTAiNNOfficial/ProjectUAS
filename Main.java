@@ -17,6 +17,7 @@
  *
  * @author Syamsuddin & Averill
  */
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -54,7 +55,18 @@ public class Main {
         golongan[6] = "R-3/TR";
         listrik[6] = 5501; //diatas 5500
         biaya[6] = 1444.70;
+        
         String barang[] = {"Lampu", "Rice Cooker", "Kulkas", "AC", "Setrika", "Mesin Cuci", "Kipas Angin"}; //[] pertama = tipe,
+        int lampu[] = {4, 6, 9, 10, 12, 13, 15, 18, 20, 25, 28, 40, 42, 53, 60, 70, 75, 100};
+        int rcook[] = {200, 300, 350, 395, 400, 980};
+        int kulkas[] = {60, 75, 80, 84, 85, 115, 116};
+        int AC[] = {400, 600, 840, 1170, 1920, 2570};
+        int Setrika[] = {150, 300, 350, 395, 400, 450, 1300, 2400};
+        int mcuci[] = {220, 325, 350, 450};
+        int kangin[] = {5, 30, 35, 45, 50, 70, 80, 90};
+             
+        ArrayList<Double> daftar = new ArrayList<>(5); //array list
+        
         do {
             gate.mainmenu(); //panggil menu
             int menu = scan.nextInt();
@@ -81,8 +93,9 @@ public class Main {
                         confirm = scan.next() + scan.nextLine();
                     } else if (menu1 == 2) {
                         gate.jenisBarang(barang);
+                        System.out.print("Pilih : ");
                         int pilih = scan.nextInt();
-                        gate.daftarBarang(pilih);
+                        gate.daftarBarang(pilih, lampu, rcook, kulkas, AC, Setrika, mcuci, kangin);
 
                     } else if (menu1 == 6) {
                         break;
@@ -148,45 +161,42 @@ public class Main {
         }
     }
 
-    public void daftarBarang(int pilih) {
-        switch (pilih) {
-            case 1:
-//                System.out.println("1. LED (4, 6, 10, 13, 18 Watt)"
-//                        + "\n2. CFL (6, 9, 12, 15, 20 Watt)"
-//                        + "\n3. Halogen (18, 28, 42, 53, 70 W)"
-//                        + "\n4. Standard (25, 40, 60, 75, 100 W)");
-                System.out.println("Lampu : ");
-                System.out.println("1.  4 Watt"
-                        + "\n2.  6 Watt"
-                        + "\n3.  9 Watt"
-                        + "\n4.  10 Watt"
-                        + "\n5.  12 Watt"
-                        + "\n6.  13 Watt"
-                        + "\n7.  15 Watt"
-                        + "\n8.  18 Watt"
-                        + "\n9.  20 Watt"
-                        + "\n10. 25 Watt"
-                        + "\n11. 28 Watt"
-                        + "\n12. 40 Watt"
-                        + "\n13. 42 Watt"
-                        + "\n14. 53 Watt"
-                        + "\n15. 60 Watt"
-                        + "\n16. 70 Watt"
-                        + "\n17. 75 Watt"
-                        + "\n18. 100 Watt");
-            case 2:
-                System.out.println("Rice Cooker : ");
-            case 3:
-                System.out.println("Kulkas : ");
-            case 4:
-                System.out.println("AC : ");
-            case 5:
-                System.out.println("Setrika : ");
-            case 6:
-                System.out.println("Mesin Cuci : ");
-            case 7:
-                System.out.println("Kipas Angin : ");
-                
+    public void daftarBarang(int pilih, int lampu[], int rcook[], int kulkas[], int AC[], int Setrika[], int mcuci[], int kangin[]) {
+        if (pilih == 1) {
+            System.out.println("Lampu : ");
+            for (int i = 0; i < lampu.length; i++) {
+                System.out.println((i + 1) + ". " + lampu[i] + " W");
+            }
+        } else if (pilih == 2) {
+            System.out.println("Rice Cooker : ");
+            for (int i = 0; i < rcook.length; i++) {
+                System.out.println((i + 1) + ". " + rcook[i] + " W");
+            }
+        } else if (pilih == 3) {
+            System.out.println("Kulkas : ");
+            for (int i = 0; i < kulkas.length; i++) {
+                System.out.println((i + 1) + ". " + kulkas[i] + " W");
+            }
+        } else if (pilih == 4) {
+            System.out.println("AC : ");
+            for (int i = 0; i < AC.length; i++) {
+                System.out.println((i + 1) + ". " + AC[i] + " W");
+            }
+        } else if (pilih == 5) {
+            System.out.println("Setrika : ");
+            for (int i = 0; i < Setrika.length; i++) {
+                System.out.println((i + 1) + ". " + Setrika[i] + " W");
+            }
+        } else if (pilih == 6) {
+            System.out.println("Mesin Cuci : ");
+            for (int i = 0; i < mcuci.length; i++) {
+                System.out.println((i + 1) + ". " + mcuci[i] + " W");
+            }
+        } else if (pilih == 7) {
+            System.out.println("Kipas Angin : ");
+            for (int i = 0; i < kangin.length; i++) {
+                System.out.println((i + 1) + ". " + kangin[i] + " W");
+            }
         }
     }
 
