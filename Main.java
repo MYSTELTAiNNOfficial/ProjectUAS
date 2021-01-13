@@ -303,9 +303,9 @@ public class Main {
 
     public void contact() {
         System.out.println("Contact Us : "
-                + "\n- e-mail  \t: "
-                + "\n- WhatsApp\t:"
-                + "\n- LINE    \t:");
+                + "\n- e-mail  \t: abede5dasar@gmxxx.cxx"
+                + "\n- WhatsApp\t: 08X-XXXXXXXXX"
+                + "\n- LINE    \t: abece5dasar");
         System.out.print("Back (Y/n)? ");
     }
 }
