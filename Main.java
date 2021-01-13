@@ -18,7 +18,6 @@
  * @author Syamsuddin & Averill
  */
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -70,9 +69,9 @@ public class Main {
         int mcuci[] = {220, 325, 350, 450};
         int kangin[] = {5, 30, 35, 45, 50, 70, 80, 90};
 
-        ArrayList<Integer> Watt = new ArrayList<>();//array list
-        ArrayList<Integer> Jumlah = new ArrayList<>();
-        ArrayList<Integer> Waktu = new ArrayList<>();
+        ArrayList<Integer> Watt = new ArrayList<Integer>();//array list
+        ArrayList<Integer> Jumlah = new ArrayList<Integer>();
+        ArrayList<Integer> Waktu = new ArrayList<Integer>();
 
         do {
             gate.mainmenu(); //panggil menu
@@ -101,7 +100,7 @@ public class Main {
                             int no = scan.nextInt();
 
                             if (pilih == 1) { //lampu
-                                Watt.add(lampu[no-1]);
+                                Watt.add(lampu[no - 1]);
                                 System.out.print("Jumlah Lampu : ");
                                 int jumlah = scan.nextInt();
                                 Jumlah.add(jumlah);
@@ -109,7 +108,7 @@ public class Main {
                                 int waktu = scan.nextInt();
                                 Waktu.add(waktu);
                             } else if (pilih == 2) { //Rice Coooker
-                                Watt.add(rcook[no-1]);
+                                Watt.add(rcook[no - 1]);
                                 System.out.print("Jumlah Rice Cooker : ");
                                 int jumlah = scan.nextInt();
                                 Jumlah.add(jumlah);
@@ -117,7 +116,7 @@ public class Main {
                                 int waktu = scan.nextInt();
                                 Waktu.add(waktu);
                             } else if (pilih == 3) { //Kulkas
-                                Watt.add(kulkas[no-1]);
+                                Watt.add(kulkas[no - 1]);
                                 System.out.print("Jumlah Kulkas : ");
                                 int jumlah = scan.nextInt();
                                 Jumlah.add(jumlah);
@@ -125,7 +124,7 @@ public class Main {
                                 int waktu = scan.nextInt();
                                 Waktu.add(waktu);
                             } else if (pilih == 4) { //AC
-                                Watt.add(AC[no-1]);
+                                Watt.add(AC[no - 1]);
                                 System.out.print("Jumlah AC : ");
                                 int jumlah = scan.nextInt();
                                 Jumlah.add(jumlah);
@@ -133,7 +132,7 @@ public class Main {
                                 int waktu = scan.nextInt();
                                 Waktu.add(waktu);
                             } else if (pilih == 5) { //Setrika
-                                Watt.add(Setrika[no-1]);
+                                Watt.add(Setrika[no - 1]);
                                 System.out.print("Jumlah Setrika : ");
                                 int jumlah = scan.nextInt();
                                 Jumlah.add(jumlah);
@@ -141,7 +140,7 @@ public class Main {
                                 int waktu = scan.nextInt();
                                 Waktu.add(waktu);
                             } else if (pilih == 6) { //Mecin Cuci
-                                Watt.add(mcuci[no-1]);
+                                Watt.add(mcuci[no - 1]);
                                 System.out.print("Jumlah Mesin Cuci : ");
                                 int jumlah = scan.nextInt();
                                 Jumlah.add(jumlah);
@@ -149,7 +148,7 @@ public class Main {
                                 int waktu = scan.nextInt();
                                 Waktu.add(waktu);
                             } else if (pilih == 7) { //Kipas Angin
-                                Watt.add(kangin[no-1]);
+                                Watt.add(kangin[no - 1]);
                                 System.out.print("Jumlah Kipas Angin : ");
                                 int jumlah = scan.nextInt();
                                 Jumlah.add(jumlah);
@@ -160,11 +159,12 @@ public class Main {
 
                             System.out.println("Tambahkan barang (Y/n)? ");
                             yn = scan.next();
-                            
-                            System.out.println();
-                            
+
                         } while (yn.equalsIgnoreCase("Y"));
-                        
+                    } else if (menu1 == 5) {
+                        gate.rumus(bia_temp, Watt, Jumlah, Waktu);
+                        System.out.print("Kembali (Y/n)? ");
+                        confirm = scan.next() + scan.nextLine();
                     } else if (menu1 == 6) {
                         break;
                     }
@@ -282,10 +282,25 @@ public class Main {
         }
     }
 
-    public void rumus(ArrayList Watt, ArrayList Jumlah, ArrayList Waktu){
-        
+    public void rumus(double bia_temp, ArrayList<Integer> Watt, ArrayList<Integer> Jumlah, ArrayList<Integer> Waktu) {
+        double hari = 0, minggu = 0, bulan = 0;
+        int wh = 0;
+        int kwh = 0;
+        for (int i = 0; i < Watt.size(); i++) {
+            int temp = 0;
+            temp = Watt.get(i) * Jumlah.get(i) * Waktu.get(i);
+            wh += temp;
+        }
+        kwh = wh/1000;
+        System.out.println(kwh);
+        hari = kwh * bia_temp;
+        minggu = hari * 7;
+        bulan = hari * 30;
+        System.out.println("Tagihan Listrik Anda dalam Sehari Kurang Lebih\t: Rp. "+hari);
+        System.out.println("Tagihan Listrik Anda dalam Seminggu Kurang Lebih: Rp. "+minggu);
+        System.out.println("Tagihan Listrik Anda dalam Sebulan Kurang Lebih\t: Rp. "+bulan);
     }
-    
+
     public void contact() {
         System.out.println("Contact Us : "
                 + "\n- e-mail  \t: "
