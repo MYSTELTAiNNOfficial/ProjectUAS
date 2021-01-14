@@ -88,10 +88,14 @@ public class Main {
                         System.out.println("Daya Max : " + listrik[temp] + " VA");
                         System.out.println("Biaya    : Rp." + biaya[temp] + "/KWh");
                         System.out.print("Lanjutkan Proses (Y/n)? ");
-                        confirm = scan.next() + scan.nextLine();
-                        gol_temp = golongan[temp];
-                        lis_temp = listrik[temp];
-                        bia_temp = biaya[temp];
+                        confirm = scan.next();
+                        if (confirm.equalsIgnoreCase("y")) {
+                            gol_temp = golongan[temp];
+                            lis_temp = listrik[temp];
+                            bia_temp = biaya[temp];
+                        } else if (confirm.equalsIgnoreCase("n")) {
+
+                        }
 
                     } else if (menu1 == 2) {
                         do {
