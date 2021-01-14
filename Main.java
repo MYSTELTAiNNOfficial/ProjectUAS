@@ -89,6 +89,9 @@ public class Main {
                         System.out.println("Biaya    : Rp." + biaya[temp] + "/KWh");
                         System.out.print("Lanjutkan Proses (Y/n)? ");
                         confirm = scan.next() + scan.nextLine();
+                        gol_temp = golongan[temp];
+                        lis_temp = listrik[temp];
+                        bia_temp = biaya[temp];
 
                     } else if (menu1 == 2) {
                         do {
@@ -291,14 +294,14 @@ public class Main {
             temp = Watt.get(i) * Jumlah.get(i) * Waktu.get(i);
             wh += temp;
         }
-        kwh = wh/1000;
+        kwh = wh / 1000;
         System.out.println(kwh);
         hari = kwh * bia_temp;
         minggu = hari * 7;
         bulan = hari * 30;
-        System.out.println("Tagihan Listrik Anda dalam Sehari Kurang Lebih\t: Rp. "+hari);
-        System.out.println("Tagihan Listrik Anda dalam Seminggu Kurang Lebih: Rp. "+minggu);
-        System.out.println("Tagihan Listrik Anda dalam Sebulan Kurang Lebih\t: Rp. "+bulan);
+        System.out.println("Tagihan Listrik Anda dalam Sehari Kurang Lebih\t: Rp. " + hari);
+        System.out.println("Tagihan Listrik Anda dalam Seminggu Kurang Lebih: Rp. " + minggu);
+        System.out.println("Tagihan Listrik Anda dalam Sebulan Kurang Lebih\t: Rp. " + bulan);
     }
 
     public void contact() {
