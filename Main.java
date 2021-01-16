@@ -93,6 +93,7 @@ public class Main {
                             lis_temp = listrik[temp];
                             bia_temp = biaya[temp];
                         } else if (confirm.equalsIgnoreCase("n")) {
+                            
                         }
 
                     } else if (menu1 == 2) {
@@ -168,7 +169,7 @@ public class Main {
                                 double waktu = scan.nextDouble();
                                 Waktu.add(waktu);
                             }
-                            System.out.println("\nTambahkan barang (Y/n)? ");
+                            System.out.print("\nTambahkan barang (Y/n)? ");
                             yn = scan.next();
                         } while (yn.equalsIgnoreCase("Y"));
                         
@@ -192,7 +193,7 @@ public class Main {
                         } else {
                             System.err.println("Belum ada barang!");
                             System.out.print("Kembali (Y/n)? ");
-                            confirm = scan.next() + scan.nextLine();
+                            confirm = scan.next();
                         }
                     } else if (menu1 == 4) { //HAPUS
                         if (!Nama.isEmpty()) {
@@ -204,24 +205,24 @@ public class Main {
                         } else {
                             System.err.println("Belum ada barang!");
                             System.out.print("Kembali (Y/n)? ");
-                            confirm = scan.next() + scan.nextLine();
+                            confirm = scan.next();
                         }
                     } else if (menu1 == 5) {
                         gate.rumus(bia_temp, Watt, Jumlah, Waktu);
                         System.out.print("Kembali (Y/n)? ");
-                        confirm = scan.next() + scan.nextLine();
+                        confirm = scan.next();
                     } else if (menu1 == 6) {
                         break;
                     }
                 } while (confirm.equalsIgnoreCase("y"));
             } else if (menu == 2) {
                 gate.contact();
-                confirm = scan.next() + scan.nextLine();
+                confirm = scan.next();
             } else if (menu == 3) {
                 System.out.println("Bye-bye");
                 break;
             }
-        } while (true || confirm.equalsIgnoreCase("Y"));
+        } while (!false || confirm.equalsIgnoreCase("Y"));
     }
 
     public void mainmenu() { //menu awal
@@ -290,40 +291,61 @@ public class Main {
 
     public void daftarBarang(int pilih, double lampu[], double rcook[], double kulkas[], double AC[], double Setrika[], double mcuci[], double kangin[]) {
         if (pilih == 1) {
+            System.out.println("");
+            System.out.println("=====================");
             System.out.println("Lampu : ");
             for (int i = 0; i < lampu.length; i++) {
                 System.out.println((i + 1) + ". " + (int) lampu[i] + " Watt");
             }
+            System.out.println("=====================");
         } else if (pilih == 2) {
+            System.out.println("");
+            System.out.println("=====================");
             System.out.println("Rice Cooker : ");
             for (int i = 0; i < rcook.length; i++) {
                 System.out.println((i + 1) + ". " + (int) rcook[i] + " Watt");
             }
+            System.out.println("=====================");
         } else if (pilih == 3) {
+            System.out.println("");
+            System.out.println("=====================");
             System.out.println("Kulkas : ");
             for (int i = 0; i < kulkas.length; i++) {
                 System.out.println((i + 1) + ". " + (int) kulkas[i] + " Watt");
             }
+            System.out.println("=====================");
         } else if (pilih == 4) {
+            System.out.println("");
+            System.out.println("=====================");
             System.out.println("AC : ");
             for (int i = 0; i < AC.length; i++) {
                 System.out.println((i + 1) + ". " + (int) AC[i] + " Watt");
             }
+            System.out.println("=====================");
         } else if (pilih == 5) {
+            System.out.println("");
+            System.out.println("=====================");
             System.out.println("Setrika : ");
             for (int i = 0; i < Setrika.length; i++) {
                 System.out.println((i + 1) + ". " + (int) Setrika[i] + " Watt");
             }
+            System.out.println("=====================");
         } else if (pilih == 6) {
+            System.out.println("");
+            System.out.println("=====================");
             System.out.println("Mesin Cuci : ");
             for (int i = 0; i < mcuci.length; i++) {
                 System.out.println((i + 1) + ". " + (int) mcuci[i] + " Watt");
             }
+            System.out.println("=====================");
         } else if (pilih == 7) {
+            System.out.println("");
+            System.out.println("=====================");
             System.out.println("Kipas Angin : ");
             for (int i = 0; i < kangin.length; i++) {
                 System.out.println((i + 1) + ". " + (int) kangin[i] + " Watt");
             }
+            System.out.println("=====================");
         }
     }
 
