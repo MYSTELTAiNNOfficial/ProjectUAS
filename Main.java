@@ -32,12 +32,10 @@ public class Main {
         String golongan[] = new String[7];
         String listrik[] = new String[7];
         double biaya[] = new double[7];
-        String gol_temp = "-"; // untuk tampilan dan beberapa fungsi lain
+        String gol_temp = "-";      // untuk tampilan dan beberapa fungsi lain
         String lis_temp = "-";      // untuk tampilan
-        double bia_temp = 0;    // untuk tampilan
+        double bia_temp = 0;        // untuk tampilan
 
-//        int counter1 = 0;
-//        String list[][] = new String[counter1][5];
         golongan[0] = "R-1/TR";
         listrik[0] = "450";
         biaya[0] = 165;
@@ -57,7 +55,7 @@ public class Main {
         listrik[5] = "5500";
         biaya[5] = 1444.70;
         golongan[6] = "R-3/TR";
-        listrik[6] = "> 5500"; //diatas 5500
+        listrik[6] = "> 5500"; 
         biaya[6] = 1444.70;
 
         String barang[] = {"Lampu", "Rice Cooker", "Kulkas", "AC", "Setrika", "Mesin Cuci", "Kipas Angin"}; //[] pertama = tipe,
@@ -170,11 +168,10 @@ public class Main {
                                 double waktu = scan.nextDouble();
                                 Waktu.add(waktu);
                             }
-
-                            System.out.println("Tambahkan barang (Y/n)? ");
+                            System.out.println("\nTambahkan barang (Y/n)? ");
                             yn = scan.next();
-
                         } while (yn.equalsIgnoreCase("Y"));
+                        
                     } else if (menu1 == 3) { //UPDATE
                         if (!Nama.isEmpty()) {
                             System.out.println("====================="
