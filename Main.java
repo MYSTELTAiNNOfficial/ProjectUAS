@@ -401,7 +401,6 @@ public class Main {
             Watt.remove((no - 1));
             Jumlah.remove((no - 1));
             Waktu.remove((no - 1));
-
         }
     }
 }
