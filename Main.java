@@ -28,6 +28,8 @@ public class Main {
 
         String confirm = "n";
         String yn = "n";
+        String tambah = "n";
+        String exit = "n";
 
         String golongan[] = new String[7];
         String listrik[] = new String[7];
@@ -107,66 +109,66 @@ public class Main {
                             int no = scan.nextInt();
 
                             if (pilih == 1) { //lampu
-                                Nama.add("Lampu");
+                                Nama.add(barang[0]);
                                 Watt.add(lampu[no - 1]);
                                 System.out.print("Jumlah Lampu : ");
                                 jumlah = scan.nextDouble();
                                 Jumlah.add(jumlah);
-                                System.out.print("Lama Pemakaian (Akumulasi): ");
+                                System.out.print("Lama Pemakaian (Total): ");
                                 waktu = scan.nextDouble();
                                 Waktu.add(waktu);
                             } else if (pilih == 2) { //Rice Coooker
-                                Nama.add("Rice Cooker");
+                                Nama.add(barang[1]);
                                 Watt.add(rcook[no - 1]);
                                 System.out.print("Jumlah Rice Cooker : ");
                                 jumlah = scan.nextDouble();
                                 Jumlah.add(jumlah);
-                                System.out.print("Lama Pemakaian (Akumulasi): ");
+                                System.out.print("Lama Pemakaian (Total): ");
                                 waktu = scan.nextDouble();
                                 Waktu.add(waktu);
                             } else if (pilih == 3) { //Kulkas
-                                Nama.add("Kulkas");
+                                Nama.add(barang[2]);
                                 Watt.add(kulkas[no - 1]);
                                 System.out.print("Jumlah Kulkas : ");
                                 jumlah = scan.nextDouble();
                                 Jumlah.add(jumlah);
-                                System.out.print("Lama Pemakaian (Akumulasi): ");
+                                System.out.print("Lama Pemakaian (Total): ");
                                 waktu = scan.nextDouble();
                                 Waktu.add(waktu);
                             } else if (pilih == 4) { //AC
-                                Nama.add("AC");
+                                Nama.add(barang[3]);
                                 Watt.add(AC[no - 1]);
                                 System.out.print("Jumlah AC : ");
                                 jumlah = scan.nextDouble();
                                 Jumlah.add(jumlah);
-                                System.out.print("Lama Pemakaian (Akumulasi): ");
+                                System.out.print("Lama Pemakaian (Total): ");
                                 waktu = scan.nextDouble();
                                 Waktu.add(waktu);
                             } else if (pilih == 5) { //Setrika
-                                Nama.add("Setrika");
+                                Nama.add(barang[4]);
                                 Watt.add(Setrika[no - 1]);
                                 System.out.print("Jumlah Setrika : ");
                                 jumlah = scan.nextDouble();
                                 Jumlah.add(jumlah);
-                                System.out.print("Lama Pemakaian (Akumulasi): ");
+                                System.out.print("Lama Pemakaian (Total): ");
                                 waktu = scan.nextDouble();
                                 Waktu.add(waktu);
                             } else if (pilih == 6) { //Mecin Cuci
-                                Nama.add("Mesin Cuci");
+                                Nama.add(barang[5]);
                                 Watt.add(mcuci[no - 1]);
                                 System.out.print("Jumlah Mesin Cuci : ");
                                 jumlah = scan.nextDouble();
                                 Jumlah.add(jumlah);
-                                System.out.print("Lama Pemakaian (Akumulasi): ");
+                                System.out.print("Lama Pemakaian (Total): ");
                                 waktu = scan.nextDouble();
                                 Waktu.add(waktu);
                             } else if (pilih == 7) { //Kipas Angin
-                                Nama.add("Kipas Angin");
+                                Nama.add(barang[6]);
                                 Watt.add(kangin[no - 1]);
                                 System.out.print("Jumlah Kipas Angin : ");
                                 jumlah = scan.nextDouble();
                                 Jumlah.add(jumlah);
-                                System.out.print("Lama Pemakaian (Akumulasi): ");
+                                System.out.print("Lama Pemakaian (Total): ");
                                 waktu = scan.nextDouble();
                                 Waktu.add(waktu);
                             }
@@ -174,29 +176,44 @@ public class Main {
                             yn = scan.next();
 
                             if (yn.equalsIgnoreCase("Y")) {
-
+                                System.out.print("Barang berhasil ditambahkan!!"
+                                        + "\nIngin tambah barang lagi (Y/n)?");
+                                tambah = scan.next();
+                                if(!tambah.equalsIgnoreCase("Y")){
+                                    System.out.print("Kembali (Y/n)?");
+                                    confirm = scan.next();
+                                }
                             } else if (yn.equalsIgnoreCase("N")) {
                                 if (pilih == 1) {
+                                    Nama.remove(barang[0]);
                                     Watt.remove(lampu[no - 1]);
                                 } else if (pilih == 2) {
+                                    Nama.remove(barang[1]);
                                     Watt.remove(rcook[no - 1]);
                                 } else if (pilih == 3) {
+                                    Nama.remove(barang[2]);
                                     Watt.remove(kulkas[no - 1]);
                                 } else if (pilih == 4) {
+                                    Nama.remove(barang[3]);
                                     Watt.remove(AC[no - 1]);
                                 } else if (pilih == 5) {
+                                    Nama.remove(barang[4]);
                                     Watt.remove(Setrika[no - 1]);
                                 } else if (pilih == 6) {
+                                    Nama.remove(barang[5]);
                                     Watt.remove(mcuci[no - 1]);
                                 } else if (pilih == 7) {
+                                    Nama.remove(barang[6]);
                                     Watt.remove(kangin[no - 1]);
                                 }
                                 Jumlah.remove(jumlah);
                                 Waktu.remove(waktu);
-                                Nama.remove(Nama);
+                                System.err.println("Barang tidak jadi ditambahkan!");
+                                System.out.print("Ulangi proses (Y/n)?");
+                                tambah = scan.next();
                             }
 
-                        } while (yn.equalsIgnoreCase("Y"));
+                        } while (tambah.equalsIgnoreCase("Y"));
 
                     } else if (menu1 == 3) { //UPDATE
                         if (!Watt.isEmpty()) {
@@ -239,15 +256,22 @@ public class Main {
                     } else if (menu1 == 6) {
                         break;
                     }
-                } while (true);
+                } while (true || confirm.equalsIgnoreCase("Y"));
             } else if (menu == 2) {
                 gate.contact();
+                System.out.print("Kembali (Y/n) : ");
                 confirm = scan.next();
             } else if (menu == 3) {
-                System.out.println("Bye-bye");
-                break;
+                System.err.print("\nSemua data akan ter-reset"
+                        + "\nAnda yakin ingin keluar (Y/n)? ");
+                exit = scan.next();
+                if(exit.equalsIgnoreCase("y")){
+                    System.out.println("\nTerima Kasih!!"
+                            + "\nBye-bye");
+                    break;
+                }
             }
-        } while (true);
+        } while (true || exit.equalsIgnoreCase("n")||confirm.equalsIgnoreCase("y"));
     }
 
     public void mainmenu() { //menu awal
@@ -393,11 +417,11 @@ public class Main {
     }
 
     public void contact() {
-        System.out.println("Contact Us : "
+        System.out.println("Hubungi kami : "
                 + "\n- e-mail  \t: abede5dasar@gmxxx.cxx"
                 + "\n- WhatsApp\t: 08X-XXXXXXXXX"
                 + "\n- LINE    \t: abece5dasar");
-        System.out.print("Back (Y/n)? ");
+        System.out.print("Kembali (Y/n)? ");
     }
 
     public void list(ArrayList<String> Nama, ArrayList<Double> Watt, ArrayList<Double> Jumlah, ArrayList<Double> Waktu) {
