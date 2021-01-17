@@ -35,8 +35,8 @@ public class Main {
         String gol_temp = "-";      // untuk tampilan dan beberapa fungsi lain
         String lis_temp = "-";      // untuk tampilan
         double bia_temp = 0;        // untuk tampilan
-        double jumlah=0;
-        double waktu=0;
+        double jumlah = 0;
+        double waktu = 0;
         golongan[0] = "R-1/TR";
         listrik[0] = "450";
         biaya[0] = 165;
@@ -56,7 +56,7 @@ public class Main {
         listrik[5] = "5500";
         biaya[5] = 1444.70;
         golongan[6] = "R-3/TR";
-        listrik[6] = "> 5500"; 
+        listrik[6] = "> 5500";
         biaya[6] = 1444.70;
 
         String barang[] = {"Lampu", "Rice Cooker", "Kulkas", "AC", "Setrika", "Mesin Cuci", "Kipas Angin"}; //[] pertama = tipe,
@@ -94,7 +94,7 @@ public class Main {
                             lis_temp = listrik[temp];
                             bia_temp = biaya[temp];
                         } else if (confirm.equalsIgnoreCase("n")) {
-                            
+
                         }
 
                     } else if (menu1 == 2) {
@@ -172,34 +172,34 @@ public class Main {
                             }
                             System.out.print("\nTambahkan barang (Y/n)? ");
                             yn = scan.next();
-                            
-                            if (yn.equalsIgnoreCase("Y")){
-                                
-                            }else if (yn.equalsIgnoreCase("N")){
-                                if (pilih==1){
+
+                            if (yn.equalsIgnoreCase("Y")) {
+
+                            } else if (yn.equalsIgnoreCase("N")) {
+                                if (pilih == 1) {
                                     Watt.remove(lampu[no - 1]);
-                                }else if (pilih==2){
+                                } else if (pilih == 2) {
                                     Watt.remove(rcook[no - 1]);
-                                }else if (pilih==3){
+                                } else if (pilih == 3) {
                                     Watt.remove(kulkas[no - 1]);
-                                }else if (pilih==4){
+                                } else if (pilih == 4) {
                                     Watt.remove(AC[no - 1]);
-                                }else if (pilih==5){
+                                } else if (pilih == 5) {
                                     Watt.remove(Setrika[no - 1]);
-                                }else if (pilih==6){
+                                } else if (pilih == 6) {
                                     Watt.remove(mcuci[no - 1]);
-                                }else if (pilih==7){
+                                } else if (pilih == 7) {
                                     Watt.remove(kangin[no - 1]);
                                 }
                                 Jumlah.remove(jumlah);
                                 Waktu.remove(waktu);
                                 Nama.remove(Nama);
                             }
-                            
+
                         } while (yn.equalsIgnoreCase("Y"));
-                        
+
                     } else if (menu1 == 3) { //UPDATE
-                        if (!Nama.isEmpty()) {
+                        if (!Watt.isEmpty()) {
                             System.out.println("====================="
                                     + "\n||   UPDATE DATA   ||"
                                     + "\n=====================");
@@ -215,19 +215,19 @@ public class Main {
                             int pilih = scan.nextInt();
                             update(no, pilih, Jumlah, Waktu);
                             //     
-                        } else {
+                        } else if (Watt.isEmpty()) {
                             System.err.println("Belum ada barang!");
                             System.out.print("Kembali (Y/n)? ");
                             confirm = scan.next();
                         }
                     } else if (menu1 == 4) { //HAPUS
-                        if (!Nama.isEmpty()) {
+                        if (!Watt.isEmpty()) {
                             System.out.println("====================="
                                     + "\n||   HAPUS  DATA   ||"
                                     + "\n=====================");
                             gate.list(Nama, Watt, Jumlah, Waktu);
                             delete(Nama, Watt, Jumlah, Waktu);
-                        } else {
+                        } else if (Watt.isEmpty()) {
                             System.err.println("Belum ada barang!");
                             System.out.print("Kembali (Y/n)? ");
                             confirm = scan.next();
