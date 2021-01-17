@@ -192,6 +192,8 @@ public class Main {
                                     Watt.remove(kangin[no - 1]);
                                 }
                                 Jumlah.remove(jumlah);
+                                Waktu.remove(waktu);
+                                Nama.remove(Nama);
                             }
                             
                         } while (yn.equalsIgnoreCase("Y"));
