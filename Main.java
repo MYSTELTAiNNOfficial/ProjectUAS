@@ -259,7 +259,6 @@ public class Main {
                 } while (true || confirm.equalsIgnoreCase("Y"));
             } else if (menu == 2) {
                 gate.contact();
-                System.out.print("Kembali (Y/n) : ");
                 confirm = scan.next();
             } else if (menu == 3) {
                 System.err.print("\nSemua data akan ter-reset"
@@ -417,7 +416,7 @@ public class Main {
     }
 
     public void contact() {
-        System.out.println("Hubungi kami : "
+        System.out.println("Hubungi Kami : "
                 + "\n- e-mail  \t: abede5dasar@gmxxx.cxx"
                 + "\n- WhatsApp\t: 08X-XXXXXXXXX"
                 + "\n- LINE    \t: abece5dasar");
